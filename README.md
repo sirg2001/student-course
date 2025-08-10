@@ -17,6 +17,27 @@ Application web de gestion des étudiants et des cours développée avec Spring 
 - Supprimer un étudiant
 - Associer un étudiant à un cours
 
+## 📸 Captures d'écran
+
+### Page d'accueil
+![Page d'accueil](screenshots/accueil.png)
+
+### Gestion des Étudiants
+#### Liste des étudiants
+![Liste des étudiants](screenshots/liste_des_etudiants.png)
+
+#### Formulaire d'ajout/modification
+![Formulaire étudiant](screenshots/ajout_etudiant.png)
+![Formulaire étudiant](screenshots/modif_etudiant.png)
+
+### Gestion des Cours
+#### Liste des cours
+![Liste des cours](screenshots/liste_des_cours.png)
+
+#### Formulaire d'ajout/modification
+![Formulaire cours](screenshots/ajout_cours.png)
+![Formulaire cours](screenshots/modif_cours.png)
+
 ## 🛠️ Technologies Utilisées
 
 - **Backend**:
