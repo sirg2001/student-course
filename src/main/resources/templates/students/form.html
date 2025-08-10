@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${student.id} != null ? 'Modifier Étudiant' : 'Ajouter Étudiant'">Gestion des Étudiants</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container mt-4">
+
+<h2 th:text="${student.id} != null ? 'Modifier un étudiant' : 'Ajouter un nouvel étudiant'"></h2>
+
+<form th:action="@{/students}" th:object="${student}" method="post">
+    <!-- Champ caché pour l'ID (nécessaire en modification) -->
+    <input type="hidden" th:field="*{id}">
+
+    <!-- Nom -->
+    <div class="mb-3">
+        <label class="form-label">Nom complet</label>
+        <input type="text" class="form-control" th:field="*{name}" placeholder="Entrez le nom complet" required>
+    </div>
+
+    <!-- Email -->
+    <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input type="email" class="form-control" th:field="*{email}" placeholder="exemple@domaine.com" required>
+    </div>
+
+    <!-- Cours -->
+    <div class="mb-3">
+        <label class="form-label">Cours</label>
+        <select class="form-select" th:field="*{course.id}" required>
+            <option value="" disabled>-- Sélectionnez un cours --</option>
+            <option th:each="course : ${courses}"
+                    th:value="${course.id}"
+                    th:text="${course.name}">
+            </option>
+        </select>
+    </div>
+
+    <!-- Boutons -->
+    <div class="mt-4">
+        <button type="submit" class="btn btn-primary">Enregistrer</button>
+        <a th:href="@{/students}" class="btn btn-secondary">Annuler</a>
+    </div>
+</form>
+
+</body>
+</html>

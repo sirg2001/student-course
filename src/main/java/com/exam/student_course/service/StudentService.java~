@@ -1,0 +1,48 @@
+package com.exam.student_course.service;
+
+import com.exam.student_course.entity.Student;
+import com.exam.student_course.repository.StudentRepository;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
+
+@Service
+public class StudentService {
+
+    private final StudentRepository studentRepository;
+
+    public StudentService(StudentRepository studentRepository) {
+        this.studentRepository = studentRepository;
+    }
+
+    // Lister tous les étudiants
+    public List<Student> getAllStudents() {
+        return studentRepository.findAll();
+    }
+
+    // Trouver un étudiant par ID
+    public Optional<Student> getStudentById(Long id) {
+        return studentRepository.findById(id);
+    }
+
+    // Ajouter ou modifier un étudiant
+    public Student saveStudent(Student student) {
+        return studentRepository.save(student);
+    }
+
+    // Supprimer un étudiant
+    public void deleteStudent(Long id) {
+        studentRepository.deleteById(id);
+    }
+}
+// Ajouter un étudiant à un cours
+    public void addStudentToCourse(Long studentId, Long courseId) {
+        Optional<Student> studentOpt = studentRepository.findById(studentId);
+        if (studentOpt.isPresent()) {
+            Student student = studentOpt.get();
+            // Logique pour ajouter l'étudiant au cours
+            // Par exemple, on pourrait avoir une méthode dans CourseService pour gérer cela
+        }
+    }
+}

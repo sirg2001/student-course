@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html xmlns:th="http://www.thymeleaf.org" th:replace="fragments/header :: *">
+<h2>Liste des Cours</h2>
+<a class="btn btn-primary mb-3" th:href="@{/courses/new}">Ajouter un cours</a>
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Description</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="course : ${courses}">
+        <td th:text="${course.id}"></td>
+        <td th:text="${course.name}"></td>
+        <td th:text="${course.description}"></td>
+        <td>
+            <a class="btn btn-warning btn-sm" th:href="@{'/courses/edit/' + ${course.id}}">Éditer</a>
+            <a class="btn btn-danger btn-sm" th:href="@{'/courses/delete/' + ${course.id}}"
+               onclick="return confirm('Confirmer la suppression ?');">Supprimer</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</div>
+</body>
+</html>
